@@ -13,10 +13,10 @@ export default function Collapse({collapsedLabel, expandedLabel}:Props) {
     expandedLabel = expandedLabel ? expandedLabel : "Свернуть"
 
     const [show, setShow] = useState(true)
-    const collapseText = useRef<HTMLDivElement>(null)
+    // const collapseText = useRef<HTMLDivElement>(null)
     
     const onClick = () => {
-        collapseText.current? show? collapseText.current.style.height = "50px" : collapseText.current.style.height = "0" : ""
+        // collapseText.current? show? collapseText.current.style.height = "50px" : collapseText.current.style.height = "0" : ""
         setShow(!show)
     }
 
@@ -26,7 +26,7 @@ export default function Collapse({collapsedLabel, expandedLabel}:Props) {
             <button onClick={onClick}>{show ? collapsedLabel : expandedLabel}</button>
             <div className={show? "collapse": "collapse show"}>
 
-                <div ref={collapseText}>{"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, at!"}</div>
+                <div style={{height: show? "50px" : "0"}}>{"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, at!"}</div>
             </div>
         </div>
     )
